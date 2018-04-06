@@ -1,0 +1,10 @@
+---
+- name: Upgrade all packages
+  apk:
+    upgrade: true
+    update_cache: true
+
+- name: Install prerequisites
+  apk:
+    name: "{{ bootstrap_prerequisite }}"
+    state: present

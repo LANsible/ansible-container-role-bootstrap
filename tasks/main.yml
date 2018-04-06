@@ -1,0 +1,4 @@
+---
+- include_tasks: load-variables.yml
+
+- include_tasks: "{{ ansible_distribution }}.yml"

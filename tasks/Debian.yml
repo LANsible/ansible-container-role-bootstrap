@@ -1,0 +1,12 @@
+---
+- name: Upgrade all packages
+  apt:
+    name: "*"
+    state: latest
+    update_cache: true
+
+- name: Install prerequisites with apt
+  apt:
+    name: "{{ bootstrap_prerequisite }}"
+    state: present
+    install_recommends: false

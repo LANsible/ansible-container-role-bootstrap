@@ -1,0 +1,10 @@
+---
+- name: Upgrade all packages
+  dnf:
+    name: "*"
+    state: latest
+
+- name: Install prerequisites
+  dnf:
+    name: "{{ bootstrap_prerequisite }}"
+    state: present
