@@ -4,3 +4,5 @@ bootstrap_default_prerequisite:
   - sudo
   - bash
   - ca-certificates
+
+bootstrap_prerequisite: "{{ bootstrap_default_prerequisite }}"
