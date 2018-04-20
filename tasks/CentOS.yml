@@ -1,14 +1,9 @@
 ---
-- name: Upgrade all packages
-  yum:
-    name: "*"
-    state: latest
-    update_cache: true
-
 - name: Install prerequisites
   yum:
     name: "{{ bootstrap_prerequisite }}"
     state: present
+    update_cache: true
 
 - name: Install packages for Centos 6 to be able to validate SNI
   yum:
