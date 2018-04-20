@@ -1,6 +1,5 @@
 ---
 bootstrap_default_prerequisite:
-  - python
   - sudo
   - bash
   - ca-certificates

@@ -1,2 +1,2 @@
 ---
-bootstrap_prerequisite: "{{ bootstrap_default_prerequisite }} + ['python-devel', 'libselinux-python']"
+bootstrap_prerequisite: "{{ bootstrap_default_prerequisite }}"
