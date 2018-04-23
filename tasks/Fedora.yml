@@ -1,9 +1,6 @@
 ---
 - name: Install prerequisites
-  raw: dnf install -y python-dnf libselinux-python
-  changed_when: false
-
-- name: Install prerequisites
   dnf:
     name: "{{ bootstrap_prerequisite }}"
     state: present
+  register: state

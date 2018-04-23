@@ -2,4 +2,12 @@
 - name: Prepare
   hosts: all
   gather_facts: false
-  tasks: []
+  tasks:
+    - raw: |
+        if [ -x "$(command -v apt-get)" ]; then apt-get update && apt-get install -y python
+        elif [ -x "$(command -v yum)" ]; then yum install -y python
+        elif [ -x "$(command -v zypper)" ]; then zypper install -y python
+        elif [ -x "$(command -v apk)" ]; then apk update && apk add python
+        elif [ -x "$(command -v pacman)" ]; then pacman --sync --noconfirm --refresh python2
+        elif [ -x "$(command -v dnf)" ]; then dnf --assumeyes install python python-devel python-dnf
+        elif [ -x "$(command -v emerge)" ]; then emerge --ask n =dev-lang/python-2\* gentoolkit; fi

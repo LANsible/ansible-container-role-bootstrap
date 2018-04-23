@@ -4,6 +4,7 @@
     name: "{{ bootstrap_prerequisite }}"
     state: present
     update_cache: true
+  register: task1
 
 - name: Install packages for Centos 6 to be able to validate SNI
   yum:
@@ -15,3 +16,8 @@
     - python-ndg_httpsclient
     - python-pyasn1
   when: ansible_distribution_major_version == '6'
+  register: task2
+
+- set_fact:
+    state:
+      changed: "{{ (task1.changed or task1.changed) }}"

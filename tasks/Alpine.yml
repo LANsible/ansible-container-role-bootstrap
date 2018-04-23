@@ -4,8 +4,4 @@
     name: "{{ bootstrap_prerequisite }}"
     state: present
     update_cache: true
-
-- name: Install prerequisites
-  apk:
-    name: "{{ bootstrap_prerequisite }}"
-    state: present
+  register: state

@@ -1,4 +1,7 @@
 ---
 - include_tasks: "{{ ansible_distribution }}.yml"
-- include_role:
+
+- name: include cleanup
+  include_role:
     name: cleanup
+  when: state.changed

@@ -5,3 +5,4 @@
     state: present
     install_recommends: false
     update_cache: true
+  register: state
