@@ -1,8 +1,7 @@
 ---
 bootstrap_default_prerequisite:
-  - python
   - sudo
   - bash
   - ca-certificates
 
-bootstrap_prerequisite: "{{ bootstrap_default_prerequisite }}"
+bootstrap_prerequisite: "{{ bootstrap_default_prerequisite }} + [ 'python' ]"

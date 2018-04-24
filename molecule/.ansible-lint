@@ -1,2 +1,5 @@
+use_default_rules: true
 rulesdir:
-    - ansible-lint-rules/
+    - molecule/ansible-lint-rules/
+skip_list:
+    - ANSIBLE0016
