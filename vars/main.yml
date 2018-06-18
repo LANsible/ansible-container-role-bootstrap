@@ -3,5 +3,6 @@ bootstrap_default_prerequisite:
   - sudo
   - bash
   - ca-certificates
+  - git
 
 bootstrap_prerequisite: "{{ bootstrap_default_prerequisite }} + [ 'python' ]"
