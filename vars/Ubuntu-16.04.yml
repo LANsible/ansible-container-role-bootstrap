@@ -1,2 +1,0 @@
----
-bootstrap_prerequisite: "{{ bootstrap_default_prerequisite }} + [ 'python3' ]"
