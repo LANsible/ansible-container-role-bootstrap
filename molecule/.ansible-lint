@@ -1,5 +1,0 @@
-use_default_rules: true
-rulesdir:
-    - molecule/ansible-lint-rules/
-skip_list:
-    - ANSIBLE0016

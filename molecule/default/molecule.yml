@@ -10,29 +10,47 @@ driver:
 lint:
   name: yamllint
   options:
-    config-file: molecule/.yamllint
+    config-file: ${DEV_MOLECULE_RULES}/yaml-lint.yml
 
 platforms:
-  - name: alpine3.5
-    image: alpine:3.5
-    command: sh -c "while true; do sleep 10000; done"
-  - name: centos7
-    image: centos:7
-  - name: debian9
-    image: debian:9
-  - name: fedora27
-    image: fedora:27
-  - name: ubuntu1604
-    image: ubuntu:16.04
+  - name: bootstrap-Alpine35
+    image: lansible/alpine:3.5
+
+  - name: bootstrap-Alpine34
+    image: lansible/alpine:3.4
+
+  - name: bootstrap-CentOS7
+    image: lansible/centos:7
+
+  - name: bootstrap-Debian9
+    image: lansible/debian:9
+
+  - name: bootstrap-Debian8
+    image: lansible/debian:8
+
+  - name: bootstrap-Fedora27
+    image: lansible/fedora:27
+
+  - name: bootstrap-Fedora26
+    image: lansible/fedora:26
+
+  - name: bootstrap-Fedora25
+    image: lansible/fedora:26
+
+  - name: bootstrap-Ubuntu1604
+    image: lansible/ubuntu:16.04
 
 provisioner:
   name: ansible
   options:
     v: true
+  config_options:
+    defaults:
+      callback_whitelist: profile_tasks
   lint:
     name: ansible-lint
     options:
-      c: molecule/.ansible-lint
+      c: ${DEV_MOLECULE_RULES}/ansible-lint.yml
 
 scenario:
   name: default
